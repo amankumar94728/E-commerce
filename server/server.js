@@ -22,16 +22,8 @@ const { MONGODB_URI } = process.env;
 
 app.use(
   cors({
-    // origin: "http://localhost:5173",
-    origin: "*",
-    methods: ["GET", "POST", "DELETE", "PUT"],
-    allowedHeaders: [
-      "Content-Type",
-      "Authorization",
-      "Cache-Control",
-      "Expires",
-      "Pragma",
-    ],
+    origin: process.env.CLIENT_URL || 'http://localhost:5173/api',
+    // origin: "*",
     credentials: true,
   })
 );
