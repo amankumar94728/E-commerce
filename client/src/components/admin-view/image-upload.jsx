@@ -5,12 +5,12 @@ import { useEffect, useRef } from "react";
 import { Button } from "../ui/button";
 import axios from "axios";
 import { Skeleton } from "../ui/skeleton";
+import PropTypes from "prop-types";
 
 function ProductImageUpload({
   imageFile,
   setImageFile,
   imageLoadingState,
-  uploadedImageUrl,
   setUploadedImageUrl,
   setImageLoadingState,
   isEditMode,
@@ -50,7 +50,7 @@ function ProductImageUpload({
     const data = new FormData();
     data.append("my_file", imageFile);
     const response = await axios.post(
-      "http://localhost:3000/api/admin/products/upload-image",
+      `${import.meta.env.VITE_API_URL}/admin/products/upload-image`,
       data
     );
     console.log(response, "response");
@@ -118,5 +118,16 @@ function ProductImageUpload({
     </div>
   );
 }
+
+ProductImageUpload.propTypes = {
+  imageFile: PropTypes.object,
+  setImageFile: PropTypes.func.isRequired,
+  imageLoadingState: PropTypes.bool.isRequired,
+  uploadedImageUrl: PropTypes.string,
+  setUploadedImageUrl: PropTypes.func.isRequired,
+  setImageLoadingState: PropTypes.func.isRequired,
+  isEditMode: PropTypes.bool.isRequired,
+  isCustomStyling: PropTypes.bool,
+};
 
 export default ProductImageUpload;
