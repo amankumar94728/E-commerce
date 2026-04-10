@@ -8,7 +8,7 @@ This is a full-stack e-commerce application built using the MERN (MongoDB, Expre
 
 Check out the live demo of this application:
 
-[MERN E-commerce Live Demo](https://e-commerce-ivory-seven-94.vercel.app/auth/login)
+[MERN E-commerce Live Demo](https://e-commerce-ivory-seven-94.vercel.app)
 
 ## Technologies Used
 
